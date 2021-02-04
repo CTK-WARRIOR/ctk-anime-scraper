@@ -1,6 +1,6 @@
 {
   "name": "ctk-anime-scraper",
-  "version": "1.0.3",
+  "version": "1.0.1",
   "description": "very easy to use package to scrap anime from gogoanime.sh",
   "main": "index.js",
   "scripts": {
