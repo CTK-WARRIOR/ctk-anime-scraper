@@ -6,11 +6,11 @@ on:
 jobs:
   npm-publish:
     name: npm-publish
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    - name: Publish if version has been updated
+    - name: Publish to npm
       uses: pascalgn/npm-publish-action@1.3.6
       env: # More info about the environment variables in the README
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
