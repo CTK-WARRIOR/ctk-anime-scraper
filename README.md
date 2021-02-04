@@ -30,3 +30,10 @@ Anime.search('naruto').then((data) => {
 	Anime.fetchAnime(data[0].link).then(data => console.log(data))
 });
 ```
+
+## Documents
+```Coming sooon.........................```
+
+
+## JOIN US
+https://withwin.in/dbd
