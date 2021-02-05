@@ -10,7 +10,7 @@ for(let i = start; i <= end;i++) {
   let object = {}
   object.episode = i;
   let download = await getFromLink(`https://gogoanime.sh/${name}-episode-${i}`)
-  object.downlaod = download.download
+  object.download = download.download
   episodes.push(object)
 }
 return episodes;
