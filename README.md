@@ -31,6 +31,15 @@ Anime.search('naruto').then((data) => {
 });
 ```
 
+### Scrap Recent Anime
+```js
+const Anime = require("ctk-anime-scraper");
+
+Anime.getRecentAnime().then(data => {
+  console.log(data)
+})
+```
+
 ## Documents
 ```Coming sooon.........................```
 
