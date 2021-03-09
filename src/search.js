@@ -1,6 +1,6 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
-const baseURL = "https://gogoanime.sh"
+const baseURL = "https://gogoanime.ai"
 
 const search = async (name) => {
 	if (!name) throw "anime name is not given.";

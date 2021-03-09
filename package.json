@@ -1,7 +1,7 @@
 {
   "name": "ctk-anime-scraper",
-  "version": "1.2.0",
-  "description": "very easy to use package to scrap anime from gogoanime.sh",
+  "version": "1.2.2",
+  "description": "very easy to use package to scrap anime from gogoanime.ai",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

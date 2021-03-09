@@ -1,6 +1,6 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
-const baseURL = "https://gogoanime.sh"
+const baseURL = "https://gogoanime.ai"
 const getRecentAnime = async () => {
   try {
     let data = await axios({url: baseURL})

@@ -27,7 +27,7 @@ const fetchAnime = async (link, options) => {
   }
   if(options.mass_episodes) end_range = options.mass_episodes;
   if(end_range > animeData.episodeCount) throw "Invalid episode range !!"
-	let name = link.replace("https://gogoanime.sh/category/", "")
+	let name = link.replace("https://gogoanime.ai/category/", "")
 	animeData.episodes = await getEpisodes(name, start_range, end_range)
 	return animeData;
   } catch(err) {
