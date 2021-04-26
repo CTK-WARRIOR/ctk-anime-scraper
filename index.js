@@ -4,4 +4,5 @@ module.exports = {
   fetchAnime: require("./src/fetchAnime.js"),
   getEpisodes: require("./src/getEpisodes.js"),
   getRecentAnime: require("./src/getRecentAnime.js")
+  getPopularAnime: require("./src/getPopularAnime.js")
 }
