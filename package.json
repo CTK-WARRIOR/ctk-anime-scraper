@@ -1,6 +1,6 @@
 {
   "name": "ctk-anime-scraper",
-  "version": "1.3.2",
+  "version": "1.2.2",
   "description": "very easy to use package to scrap anime from gogoanime.ai",
   "main": "index.js",
   "scripts": {
