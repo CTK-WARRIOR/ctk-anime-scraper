@@ -1,11 +1,11 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
-const baseURL = "https://gogoanime.vc"
+const { base_url } = require("../constant.json")
 
 const search = async (name) => {
 	if (!name) throw "anime name is not given.";
 	try {
-		let data = await axios({ url: baseURL + "/search.html?keyword=" + name });
+		let data = await axios({ url: base_url + "/search.html?keyword=" + name });
 		let $ = cheerio.load(data.data);
 		let cards = [];
 
@@ -16,7 +16,7 @@ const search = async (name) => {
 			object.img = $('div.img a img').attr('src') || null;
 			object.link = $('div.img a').attr('href') || null;
 			object.releaseDate = $('p.released').text().trim() || null;
-			if (object.link) object.link = baseURL + object.link;
+			if (object.link) object.link = base_url + object.link;
 
 			cards.push(object);
 		})

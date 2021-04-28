@@ -1,5 +1,6 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
+const { base_url } = require("../constant.json")
 const getEpisodes = require("./getEpisodes.js");
 
 const fetchAnime = async (link, options) => {
@@ -27,7 +28,7 @@ const fetchAnime = async (link, options) => {
   }
   if(options.mass_episodes) end_range = options.mass_episodes;
   if(end_range > animeData.episodeCount) throw "Invalid episode range !!"
-	let name = link.replace("https://gogoanime.vc/category/", "")
+	let name = link.replace(`${base_url}/category/`, "")
 	animeData.episodes = await getEpisodes(name, start_range, end_range)
 	return animeData;
   } catch(err) {

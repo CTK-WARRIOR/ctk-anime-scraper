@@ -1,11 +1,11 @@
 const cheerio = require("cheerio");
 const axios = require("axios");
-const baseURL = "https://gogoanime.vc"
-const getRecentAnime = async () => {
+const { base_url } = require("../constant.json")
+const getPopularAnime = async () => {
   try {
-    let data = await axios({url: baseURL})
+    let data = await axios({url: `${base_url}/popular.html`})
     data = data.data;
-    let recentAnime = []
+    let popularAnime = []
 
     let $ = cheerio.load(data);
     $('ul.items li').each(function (i, elem) {
@@ -15,15 +15,15 @@ const getRecentAnime = async () => {
       object.episode = $('p.episode').text() || null
       object.image = $('div.img img').attr("src") || null
       object.link = $('div.img a').attr("href") || null
-      if (object.link) object.link = baseURL + object.link;
-      recentAnime.push(object) 
+      if (object.link) object.link = base_url + object.link;
+      popularAnime.push(object) 
     })
 
-    return recentAnime;
+    return popularAnime;
   } catch (err) {
     throw err;
   }
 }
 
 
-module.exports = getRecentAnime;
+module.exports = getPopularAnime;

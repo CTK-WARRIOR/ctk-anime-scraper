@@ -40,6 +40,15 @@ Anime.getRecentAnime().then(data => {
 })
 ```
 
+### Scrap Popular Anime
+```js
+const Anime = require("ctk-anime-scraper");
+
+Anime.getPopularAnime().then(data => {
+  console.log(data)
+})
+```
+
 ## Documents
 ```Coming sooon.........................```
 
