@@ -1,57 +1,32 @@
-# CTK ANIME SCRAPER
-**scraper to scrap anime from gogoanime**
-
-### Search And Scrap
+# INTRODUCTION
+**ctk-anime-scraper** is the advance and better anime scraper in compare to any other scraper that you could ever find, you can get any anime details and it's direct episode link in just few lines of codes.
 ```js
-const Anime = require("ctk-anime-scraper");
+const AnimeScraper = require("ctk-anime-scraper")
+const Gogoanime = new AnimeScraper.Gogoanime()
 
-Anime.search('demon slayer').then((data) => {
-  if(!data.length) return console.log("No Anime with this name found")
-	Anime.fetchAnime(data[0].link, { episode: 1 }).then(data => console.log(data))
-});
-```
-
-### Scrap in Mass
-```js
-const Anime = require("ctk-anime-scraper");
-
-Anime.search('naruto').then((data) => {
-  if(!data.length) return console.log("No Anime with this name found")
-	Anime.fetchAnime(data[0].link, { mass_episodes: 10 }).then(data => console.log(data))
-});
-```
-
-### Scrap Whole Data
-```js
-const Anime = require("ctk-anime-scraper");
-
-Anime.search('naruto').then((data) => {
-  if(!data.length) return console.log("No Anime with this name found")
-	Anime.fetchAnime(data[0].link).then(data => console.log(data))
-});
-```
-
-### Scrap Recent Anime
-```js
-const Anime = require("ctk-anime-scraper");
-
-Anime.getRecentAnime().then(data => {
-  console.log(data)
+/* Search Anime */
+Gogoanime.search("naruto").then(results => {
+/* Get the top result from search and fetch that anime */
+	Gogoanime.fetchAnime(results[0].link).then(anime => {
+	/* Get the 1st Episode of the anime */
+		Gogoanime.getEpisodes(anime.slug, 1).then(episode => {
+		/* Here you have it, Enjoy 😉 */
+			console.log(episode) // {Object}
+		})
+	})
 })
 ```
 
-### Scrap Popular Anime
-```js
-const Anime = require("ctk-anime-scraper");
+## LINKS
+- 📃 Guide/Docs: [Documents](https://ctk-doc.gitbook.io/ctk-anime-scraper/) 
+- 💬 Discord: [Ctk's Server]([https://withwin.in/dbd](https://withwin.in/dbd)) | [Anime Hub](https://discord.io/anime_hub)
+- 🔨 Tools Used: [Axios](https://www.npmjs.com/package/axios) | [Cheerio](https://www.npmjs.com/package/cheerio) 
+- 👩‍💻 Developers: CTK WARRIOR#7923
+- Supported Websites: [Gogoanime.ai](https://gogoanime.ai/) | [Gogoanime.vc](https://gogoanime.vc/)
 
-Anime.getPopularAnime().then(data => {
-  console.log(data)
-})
-```
-
-## Documents
-```Coming sooon.........................```
-
-
-## JOIN US
-https://withwin.in/dbd
+## FEATURES
+- Allows you to easily scrap any anime
+- Get any episode direct link of any available quality
+- Faster than your internet 😅
+- Supports more than one website to scrap
+- Easy to use
