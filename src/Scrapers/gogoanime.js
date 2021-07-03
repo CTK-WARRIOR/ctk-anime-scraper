@@ -25,6 +25,7 @@ class Gogoanime {
          const episodeCount = $('ul#episode_page li a.active').attr("ep_end");
          let download = $("li.dowloads a").attr("href");
          if (!download) throw new Error("Scraping Error: Unable to scrap the downlaod link");
+         else download = download.replace("https://streamani.net/", "https://gogo-stream.com/")
          htmlContent = await axios({ url: download });
          $ = cheerio.load(htmlContent.data);
          const ScrapedAnime = {
