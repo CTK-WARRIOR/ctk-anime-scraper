@@ -25,8 +25,8 @@ class Gogoanime {
          const episodeCount = $('ul#episode_page li a.active').attr("ep_end");
          let download = $("li.dowloads a").attr("href");
          if (!download) throw new Error("Scraping Error: Unable to scrap the downlaod link");
-         else download = download.replace("https://streamani.net/", "https://gogo-stream.com/")
-         htmlContent = await axios({ url: download });
+         
+         htmlContent = await axios.get(download)
          $ = cheerio.load(htmlContent.data);
          const ScrapedAnime = {
             name: $('span#title').text() || null,
@@ -85,7 +85,8 @@ class Gogoanime {
    async getEpisodes(name, episode) {
     if(!name) throw new Error("Missing Parameters: anime name is not provided.");
     if(!episode) throw new Error("Missing Parameters: anime episode number is not provided");
-    const Episode = await this.getFromLink(`${this.base_url}/${name}-episode-${episode}`).catch(err => {});
+    const Episode = await this.getFromLink(`${this.base_url}/${name}-episode-${episode}`).catch(err => { });
+
     return Episode ? Episode : {}
 }
    
