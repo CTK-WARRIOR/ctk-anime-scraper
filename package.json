@@ -1,6 +1,6 @@
 {
   "name": "ctk-anime-scraper",
-  "version": "3.0.0",
+  "version": "3.5.0",
   "description": "very easy to use package to scrap anime from websites",
   "main": "src/index.js",
   "scripts": {

@@ -24,25 +24,12 @@ class Gogoanime {
 		 let $ = cheerio.load(htmlContent.data);
          const episodeCount = $('ul#episode_page li a.active').attr("ep_end");
          let download = $("li.dowloads a").attr("href");
-         if (!download) throw new Error("Scraping Error: Unable to scrap the downlaod link");
-         
-         htmlContent = await axios.get(download)
-         $ = cheerio.load(htmlContent.data);
+         if (!download) throw new Error("Scraping Error: Unable to scrap the downlaod link"); 
          const ScrapedAnime = {
-            name: $('span#title').text() || null,
-            download: [],
-            extraLink: []
+            name: $('div.anime_video_body h1').text() || null,
+            episodeCount,
+            id: download.match(/([A-Z])\w+/g)[0]
          }
-
-         /** Get the every download link of every quality with extra links */
-         $("div.dowload").each(function(i, elem) {
-             let qualityObject = {}
-             $ = cheerio.load($(this).html())
-             qualityObject.quality = $('a').text().replace("Download\n", "").trim()
-             qualityObject.link = $('a').attr("href")
-             if (qualityObject.quality.startsWith("(")) ScrapedAnime.download.push(qualityObject)
-             else ScrapedAnime.extraLink.push(qualityObject)
-         })
 
     return ScrapedAnime;
    }
